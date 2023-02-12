@@ -1,20 +1,20 @@
 import React from 'react'
-import './dash.css'
+import styles from './dash.module.css'
 import FileItem from './FileItem'
 
 const Dash = () => {
   return (
     <>
-        <header className='top'>
+        <header className={styles.top}>
             <h1>EasyCare</h1>
         </header>
-    <div className='dash'>
+    <div className={styles.dash}>
         <h2>Dashboard</h2>
-        <div className='dash-btm'>
-            <h3>USERNAME</h3>
-            <button className='button'>ADD</button>
+        <div className={styles.dash_btm}>
+            <h3 className={styles.username}>USERNAME</h3>
+            <button className={styles.button_add}>ADD</button>
         </div>
-        <div className='data'>
+        <div className={styles.data}>
             <FileItem fileName='Lornjkdnak' fileCreatedAt='23/07/2022'/>
         </div>
     </div>    

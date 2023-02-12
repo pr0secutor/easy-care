@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './Profile.css'
+import styles from './Profile.module.css'
 
 const Profile = () => {
   return (
     <>
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
+    <div class={styles.background}>
+      <div class={styles.shape}></div>
+      <div class={styles.shape}></div>
     </div>
     <form>
       <h3>Patient's Profile</h3>
@@ -21,7 +21,7 @@ const Profile = () => {
       <label for="password">Contact Number</label>
       <input type="text" placeholder="Enter Contact Number" id="password" />
 
-      <Link id='approve' to='/approve'><button>Save</button></Link>
+      <Link id='dash' to='/dash'><button>Save</button></Link>
     </form>
     </>
   )

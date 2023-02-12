@@ -1,12 +1,12 @@
 import React from 'react'
-import './Insurance.css'
+import styles from './Insurance.module.css'
 
 const Insurance = () => {
   return (
     <>
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
+    <div class={styles.background}>
+      <div class={styles.shape}></div>
+      <div class={styles.shape}></div>
     </div>
     <form>
       <h3>Insurance Company Dashboard</h3>

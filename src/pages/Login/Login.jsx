@@ -1,19 +1,23 @@
 import {React,useState} from 'react'
-import './login.css'
+import { Link } from 'react-router-dom';
+import styles from './login.module.css'
 
 const Login = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [option,setOption] = useState("");
   
     const errors = {
       uname: "invalid username",
       pass: "invalid password"
     };
   
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log(document.forms[0])
-    };
+    function handleChange()
+    {
+      var select = document.getElementById("selectbox")
+      setOption(select.options[select.selectedIndex].value)
+      console.log(select.options[select.selectedIndex].value)
+    }
   
     const renderErrorMessage = (name) =>
       name === errorMessages.name && (
@@ -21,28 +25,29 @@ const Login = () => {
       );
 
     const renderForm = (
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-            <select className='select_box' onchange="changeValue(this)" placeholder='You are'>
-                <option value="value1">You are</option>
-                <option value="value1">PATIENT</option>
-                <option value="value2">DOCTOR</option>
-                <option value="value3">OTHER</option>
-            </select>
-            <div className="button-container">
-                <input type="submit" value='submit'/>
-            </div>
-        </form>
-      </div>
+    <>
+    <div className={styles.background}>
+      <div className={styles.shape}></div>
+      <div className={styles.shape}></div>
+    </div>
+    <form>
+      <h3>I AM</h3>
+      <select id='selectbox' className={styles.select_box} onChange={handleChange} placeholder='You are'>
+        <option value="value1">You are</option>
+        <option value="profile">PATIENT</option>
+        <option value="doctor">DOCTOR</option>
+        <option value="insurance">OTHER</option>
+      </select>
+      <Link id='login' to={`/${option}`}><button>Login</button></Link>
+    </form>
+    </>
     );
+
   
     return (
-      <div className="app">
-        <div className="login-form">
-          <div className="title">I AM</div>
-          {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-        </div>
-      </div>
+    <>
+      {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+    </>
     );
 }
 
