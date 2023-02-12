@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './dash.module.css'
 
 const FileItem = (props) => {
@@ -9,9 +10,9 @@ const FileItem = (props) => {
             <h3>Created At  {props.fileCreatedAt}</h3>
         </div>
         <div className={styles.actions}>
-            <button className={styles.button_action}>Aproove Acees</button>
-            <button className={styles.button_action}>View</button>
-            <button className={styles.button_action}>Del</button>
+        <Link id='approve' to='/approve' style={{marginRight:32}}><button className={styles.action_button}>Aproove</button></Link>
+            <button className={styles.action_button}>View</button>
+            <button className={styles.action_button}>Del</button>
         </div>
     </div>
   )
